@@ -3,7 +3,7 @@
       <div class="container is-max-desktop px-2">
         <div class="navbar-brand">
         <div class="navbar-item is-size-4 is-family-monospace">
-          Noteballs
+          {{ $t("title") }}
         </div>
 
         <a @click.prevent="showMobileNav = !showMobileNav" :class="{'is-active' : showMobileNav}" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -17,6 +17,10 @@
     
 
     <div class="navbar-end">
+      <label for="locale">Locale: </label>
+  <select v-model="$i18n.locale" id="locale">
+    <option v-for="locale in $i18n.availableLocales" :value="locale">{{ locale }}</option>
+  </select>
       <RouterLink to="/" class="navbar-item" active-class="is-active">
         Notes
       </RouterLink>

@@ -23,7 +23,6 @@
 
         </AddEditNote>
 
-        {{ newNote }}
         <Note v-for="note in storeNotes.notes" :key="note.id" :note="note" @deleteClicked="storeNotes.deleteNote" />
 
 
@@ -37,8 +36,8 @@
     import AddEditNote from '@/components/Notes/AddEditNote.vue'
     import { useNoteStore } from '@/stores/NoteStore'
     
-    const newNote = ref('sadasas')
-    const newNoteRef = ref(null)
+    const newNote = ref('')
+    // const newNoteRef = ref(null)
 
     const storeNotes = useNoteStore()
     // const notes = ref([])
@@ -53,7 +52,7 @@
         // notes.value.unshift(note)
         storeNotes.addNote(newNote);
         newNote.value = ''
-        newNoteRef.value.focus()
+        // newNoteRef.value.focus()
     }
 
     // const deleteNote = idToDelete => {
