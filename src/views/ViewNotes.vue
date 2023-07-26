@@ -15,6 +15,7 @@
         </div> -->
         <AddEditNote
             v-model="newNote"
+            ref="addEditNoteRef"
         >
             <template #buttons>
                 <button @click="addNote" :disabled="!newNote" class="button is-link has-background-success">Add new note</button>
@@ -37,7 +38,7 @@
     import { useNoteStore } from '@/stores/NoteStore'
     
     const newNote = ref('')
-    // const newNoteRef = ref(null)
+    const addEditNoteRef = ref(null)
 
     const storeNotes = useNoteStore()
     // const notes = ref([])
@@ -52,7 +53,7 @@
         // notes.value.unshift(note)
         storeNotes.addNote(newNote);
         newNote.value = ''
-        // newNoteRef.value.focus()
+        addEditNoteRef.value.focusTextArea()
     }
 
     // const deleteNote = idToDelete => {
